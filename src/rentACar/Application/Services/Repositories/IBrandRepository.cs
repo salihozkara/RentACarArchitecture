@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace Application.Services.Repositories;
 
-public interface IBrandService:IAsyncRepository<Brand>
+public interface IBrandRepository:IAsyncRepository<Brand>
 {
     
 }
