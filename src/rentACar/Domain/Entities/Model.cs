@@ -20,7 +20,6 @@ public class Model:Entity
         ImageUrl = imageUrl;
     }
 
-    public int Id { get; set; }
     public string Name { get; set; }
     public double DailyPrice { get; set; }
     public int TransmissionId { get; set; }
@@ -31,4 +30,5 @@ public class Model:Entity
     public virtual Brand Brand { get; set; }
     public virtual Fuel Fuel { get; set; }
     public virtual Transmission Transmission { get; set; }
+    public virtual ICollection<Car> Cars { get; set; }
 }
