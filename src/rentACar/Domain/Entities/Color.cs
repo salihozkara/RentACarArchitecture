@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Core.Persistence.Repositories;
 
 namespace Domain.Entities
 {
-    internal class Color
+    public class Color:Entity
     {
+        public Color()
+        {
+            Cars=new HashSet<Car>();
+        }
+
+        public Color(int id, string name) :this()
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public string Name { get; set; }
+        public virtual ICollection<Car> Cars { get; set; }
     }
 }
