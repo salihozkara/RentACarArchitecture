@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "src\rentACar\WebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Persistence", "src\corePackages\Core.Persistence\Core.Persistence.csproj", "{7B774BCB-14F7-475B-B520-0329A4839961}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns", "src\corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{74E892CF-3324-4163-8580-EF71C97B610D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{7B774BCB-14F7-475B-B520-0329A4839961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B774BCB-14F7-475B-B520-0329A4839961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B774BCB-14F7-475B-B520-0329A4839961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E892CF-3324-4163-8580-EF71C97B610D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E892CF-3324-4163-8580-EF71C97B610D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E892CF-3324-4163-8580-EF71C97B610D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E892CF-3324-4163-8580-EF71C97B610D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{6E3DEE8A-32CE-43EA-9BD2-39526346811E} = {E7E0FF87-A379-498C-81A7-DA42564E9999}
 		{462387CA-1316-4641-95E8-52C975F789B2} = {E7E0FF87-A379-498C-81A7-DA42564E9999}
 		{7B774BCB-14F7-475B-B520-0329A4839961} = {3B914E68-E1AC-414D-A75E-1AD9859A2553}
+		{74E892CF-3324-4163-8580-EF71C97B610D} = {3B914E68-E1AC-414D-A75E-1AD9859A2553}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6D41368-ACD6-426B-8846-6BC2DAF85F8D}
