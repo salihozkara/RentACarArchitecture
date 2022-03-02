@@ -9,11 +9,10 @@ public class Fuel:Entity
         Models = new HashSet<Model>();
     }
 
-    public Fuel(int id, string name, ICollection<Model> models) : this()
+    public Fuel(int id, string name) : this()
     {
         Id = id;
         Name = name;
-        Models = models;
     }
 
     public string Name { get; set; }
