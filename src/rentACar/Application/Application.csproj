@@ -25,6 +25,10 @@
     <Folder Include="Features\Brands\Models" />
     <Folder Include="Features\Brands\Queries" />
     <Folder Include="Features\Brands\Tests" />
+    <Folder Include="Features\Models\Dtos" />
+    <Folder Include="Features\Models\Models" />
+    <Folder Include="Features\Models\Queries" />
+    <Folder Include="Features\Models\Tests" />
   </ItemGroup>
 
 </Project>
