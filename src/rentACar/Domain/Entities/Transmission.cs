@@ -2,8 +2,10 @@
 
 namespace Domain.Entities;
 
+// Transmission has a make name
 public class Transmission : Entity
 {
+    // Constructor
     public Transmission()
     {
         Models = new HashSet<Model>();
@@ -15,6 +17,8 @@ public class Transmission : Entity
         Id = id;
     }
 
+    // Properties
     public string Name { get; set; }
+    // Navigation Properties
     public virtual ICollection<Model> Models { get; set; }
 }

@@ -2,8 +2,10 @@
 
 namespace Domain.Entities;
 
-public class Fuel:Entity
+// Fuel has a make name
+public class Fuel : Entity
 {
+    // Constructor
     public Fuel()
     {
         Models = new HashSet<Model>();
@@ -14,7 +16,8 @@ public class Fuel:Entity
         Id = id;
         Name = name;
     }
-
+    // Properties
     public string Name { get; set; }
+    // Navigation Properties
     public virtual ICollection<Model> Models { get; set; }
 }
