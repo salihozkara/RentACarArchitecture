@@ -31,11 +31,6 @@
     <Folder Include="Features\Blank\Queries" />
     <Folder Include="Features\Blank\Rules" />
     <Folder Include="Features\Brands\Tests" />
-    <Folder Include="Features\Cars\Commands\Delete" />
-    <Folder Include="Features\Cars\Commands\Update" />
-    <Folder Include="Features\Cars\Dtos" />
-    <Folder Include="Features\Cars\Models" />
-    <Folder Include="Features\Cars\Queries" />
     <Folder Include="Features\Cars\Rules" />
     <Folder Include="Features\Models\Dtos" />
     <Folder Include="Features\Models\Models" />
