@@ -1,4 +1,6 @@
 using Application.Features.Cars.Commands.CreateCar;
+using Application.Features.Cars.Commands.DeleteCar;
+using Application.Features.Cars.Commands.UpdateCar;
 using Application.Features.Cars.Dtos;
 using Application.Features.Cars.Models;
 using AutoMapper;
@@ -13,6 +15,10 @@ public class MappingProfiles : Profile
     {
         // Create Command Mapping
         CreateMap<Car, CreateCarCommand>().ReverseMap();
+        // Update Command Mapping
+        CreateMap<Car, UpdateCarCommand>().ReverseMap();
+        // Delete Command Mapping
+        CreateMap<Car, DeleteCarCommand>().ReverseMap();
         // Get List Query Mapping
         CreateMap<Car, CarListDto>().ForMember(c => c.ColorName, opt => opt.MapFrom(c => c.Color.Name))
             .ForMember(c => c.ModelName, opt => opt.MapFrom(c => c.Model.Name))
