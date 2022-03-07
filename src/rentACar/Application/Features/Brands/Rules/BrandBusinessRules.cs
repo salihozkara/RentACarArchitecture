@@ -4,8 +4,8 @@ using Core.CrossCuttingConcerns.Exceptions;
 namespace Application.Features.Brands.Rules;
 
 public class BrandBusinessRules
-{
-    IBrandRepository _brandRepository;
+{ 
+    private readonly IBrandRepository _brandRepository;
     public BrandBusinessRules(IBrandRepository brandRepository)
     {
         _brandRepository = brandRepository;
