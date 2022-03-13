@@ -29,6 +29,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IModelRepository, ModelRepository>();
         // Transmission
         services.AddScoped<ITransmissionRepository, TransmissionRepository>();
+        // User
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }

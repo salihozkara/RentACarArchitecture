@@ -1,3 +1,4 @@
+using Application.Features.Cars.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -6,7 +7,7 @@ using MediatR;
 
 namespace Application.Features.Cars.Commands.CreateCar;
 
-public class CreateCarCommand:IRequest<Car>
+public class CreateCarCommand:IRequest<CreatedCarDto>
 {
     // Car Properties
     public int ColorId { get; set; }
@@ -14,7 +15,7 @@ public class CreateCarCommand:IRequest<Car>
     public CarState CarState { get; set; }
     public short ModelYear { get; set; }
     public string Plate { get; set; }
-    public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, Car>
+    public class CreateCarCommandHandler : IRequestHandler<CreateCarCommand, CreatedCarDto>
     {
         
         
@@ -29,12 +30,11 @@ public class CreateCarCommand:IRequest<Car>
             _mapper = mapper;
         }
 
-        public async Task<Car> Handle(CreateCarCommand request, CancellationToken cancellationToken)
+        public async Task<CreatedCarDto> Handle(CreateCarCommand request, CancellationToken cancellationToken)
         {
             var car = _mapper.Map<Car>(request);
             await _carRepository.AddAsync(car);
-            
-            return car;
+            return _mapper.Map<CreatedCarDto>(car);
         }
     }
 }

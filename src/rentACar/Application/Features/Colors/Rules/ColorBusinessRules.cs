@@ -4,8 +4,8 @@ using Core.CrossCuttingConcerns.Exceptions;
 namespace Application.Features.Colors.Rules;
 
 public class ColorBusinessRules
-{
-    IColorRepository _colorRepository;
+{ 
+    private readonly IColorRepository _colorRepository;
     public ColorBusinessRules(IColorRepository colorRepository)
     {
         _colorRepository = colorRepository;

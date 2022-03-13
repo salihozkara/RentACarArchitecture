@@ -1,3 +1,4 @@
+using Application.Features.Cars.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -6,7 +7,7 @@ using MediatR;
 
 namespace Application.Features.Cars.Commands.UpdateCar;
 
-public class UpdateCarCommand:IRequest<Car>
+public class UpdateCarCommand:IRequest<UpdatedCarDto>
 {
     // Domain.Entities.Car Properties ignored Navigation Properties
     public int Id { get; set; }
@@ -16,7 +17,7 @@ public class UpdateCarCommand:IRequest<Car>
     public short ModelYear { get; set; }
     public string Plate { get; set; }
     
-    public class UpdateCarCommandHandler : IRequestHandler<UpdateCarCommand, Car>
+    public class UpdateCarCommandHandler : IRequestHandler<UpdateCarCommand, UpdatedCarDto>
     {
         // Car Repository
         private readonly ICarRepository _carRepository;
@@ -29,7 +30,7 @@ public class UpdateCarCommand:IRequest<Car>
             _mapper = mapper;
         }
         // Handle
-        public async Task<Car> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
+        public async Task<UpdatedCarDto> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
         {
             var car = _mapper.Map<Car>(request);
             if (car == null)
@@ -40,7 +41,8 @@ public class UpdateCarCommand:IRequest<Car>
             _mapper.Map(request, car);
             // Update
             await _carRepository.UpdateAsync(car);
-            return car;
+            // Return Dto
+            return _mapper.Map<UpdatedCarDto>(car);
         }
     }
 }

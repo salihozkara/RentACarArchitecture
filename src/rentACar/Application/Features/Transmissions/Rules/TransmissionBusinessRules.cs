@@ -4,8 +4,8 @@ using Core.CrossCuttingConcerns.Exceptions;
 namespace Application.Features.Transmissions.Rules;
 
 public class TransmissionBusinessRules
-{
-    ITransmissionRepository _transmissionRepository;
+{ 
+    private readonly ITransmissionRepository _transmissionRepository;
     public TransmissionBusinessRules(ITransmissionRepository transmissionRepository)
     {
         _transmissionRepository = transmissionRepository;

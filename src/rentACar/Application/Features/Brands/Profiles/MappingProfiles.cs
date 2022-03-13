@@ -15,12 +15,16 @@ public class MappingProfiles : Profile
     {
         // Create Command mapping
         CreateMap<Brand, CreateBrandCommand>().ReverseMap();
+        CreateMap<Brand, CreatedBrandDto>().ReverseMap();
         // Update Command mapping
         CreateMap<Brand, UpdateBrandCommand>().ReverseMap();
+        CreateMap<Brand, UpdatedBrandDto>().ReverseMap();
         // Delete Command mapping
         CreateMap<Brand, DeleteBrandCommand>().ReverseMap();
+        CreateMap<Brand, DeletedBrandDto>().ReverseMap();
         // Select Query mapping
         CreateMap<Brand, BrandListDto>().ReverseMap();
+        CreateMap<Brand, BrandDto>().ReverseMap();
         CreateMap<IPaginate<Brand>, BrandListModel>().ReverseMap();
     }
 }

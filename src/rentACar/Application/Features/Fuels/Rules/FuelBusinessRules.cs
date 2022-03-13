@@ -4,8 +4,8 @@ using Core.CrossCuttingConcerns.Exceptions;
 namespace Application.Features.Fuels.Rules;
 
 public class FuelBusinessRules
-{
-    IFuelRepository _fuelRepository;
+{ 
+    private readonly IFuelRepository _fuelRepository;
     public FuelBusinessRules(IFuelRepository fuelRepository)
     {
         _fuelRepository = fuelRepository;

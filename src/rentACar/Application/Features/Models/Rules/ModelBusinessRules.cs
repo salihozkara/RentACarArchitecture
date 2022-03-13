@@ -1,10 +1,10 @@
-﻿using Application.Services.Repositories;
+using Application.Services.Repositories;
 using Core.CrossCuttingConcerns.Exceptions;
 
 namespace Application.Features.Models.Rules;
 
 public class ModelBusinessRules
-{
+{ 
     private readonly IModelRepository _modelRepository;
     public ModelBusinessRules(IModelRepository modelRepository)
     {

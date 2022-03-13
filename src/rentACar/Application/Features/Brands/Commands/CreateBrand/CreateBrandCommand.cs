@@ -1,4 +1,5 @@
-﻿using Application.Features.Brands.Rules;
+﻿using Application.Features.Brands.Dtos;
+using Application.Features.Brands.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Mailing;
@@ -7,10 +8,10 @@ using MediatR;
 
 namespace Application.Features.Brands.Commands.CreateBrand;
 
-public class CreateBrandCommand:IRequest<Brand>
+public class CreateBrandCommand:IRequest<CreatedBrandDto>
 {
     public string Name { get; set; }
-    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, Brand>
+    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandDto>
     {
         private readonly IBrandRepository _brandRepository;
         private readonly IMapper _mapper;
@@ -26,11 +27,12 @@ public class CreateBrandCommand:IRequest<Brand>
             _mailService = mailService;
         }
 
-        public async Task<Brand> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+        public async Task<CreatedBrandDto> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
             await _brandBusinessRules.BrandNameCanNotBeDuplicatedWhenInserting(request.Name);
             var mappedBrand = _mapper.Map<Brand>(request);
-            var createdBrand= await _brandRepository.AddAsync(mappedBrand);
+            await _brandRepository.AddAsync(mappedBrand);
+            var createdBrandDto= _mapper.Map<CreatedBrandDto>(mappedBrand);
             
             // send email
             _mailService.Send(new Mail()
@@ -40,7 +42,7 @@ public class CreateBrandCommand:IRequest<Brand>
                 Subject = "Brand Created",
                 HtmlBody = $"Brand {request.Name} was created"
             });
-            return createdBrand;
+            return createdBrandDto;
         }
     }
    

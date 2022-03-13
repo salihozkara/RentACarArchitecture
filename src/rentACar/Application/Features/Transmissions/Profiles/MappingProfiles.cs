@@ -15,12 +15,16 @@ public class MappingProfiles : Profile
     {
         // Create Command mapping
         CreateMap<Transmission, CreateTransmissionCommand>().ReverseMap();
+        CreateMap<Transmission, CreatedTransmissionDto>().ReverseMap();
         // Update Command mapping
         CreateMap<Transmission, UpdateTransmissionCommand>().ReverseMap();
+        CreateMap<Transmission, UpdatedTransmissionDto>().ReverseMap();
         // Delete Command mapping
         CreateMap<Transmission, DeleteTransmissionCommand>().ReverseMap();
+        CreateMap<Transmission, DeletedTransmissionDto>().ReverseMap();
         // Select Query mapping
         CreateMap<Transmission, TransmissionListDto>().ReverseMap();
+        CreateMap<Transmission, TransmissionDto>().ReverseMap();
         CreateMap<IPaginate<Transmission>, TransmissionListModel>().ReverseMap();
     }
 }

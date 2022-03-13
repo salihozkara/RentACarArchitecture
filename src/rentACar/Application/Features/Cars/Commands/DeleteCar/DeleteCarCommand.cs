@@ -1,3 +1,4 @@
+using Application.Features.Cars.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -5,11 +6,11 @@ using MediatR;
 
 namespace Application.Features.Cars.Commands.DeleteCar;
 
-public class DeleteCarCommand : IRequest<Car>
+public class DeleteCarCommand : IRequest<DeletedCarDto>
 {
     public int Id { get; set; }
     
-    public class DeleteCarCommandHandler : IRequestHandler<DeleteCarCommand, Car>
+    public class DeleteCarCommandHandler : IRequestHandler<DeleteCarCommand, DeletedCarDto>
     {
         // Car repository
         private readonly ICarRepository _carRepository;
@@ -22,7 +23,7 @@ public class DeleteCarCommand : IRequest<Car>
             _mapper = mapper;
         }
 
-        public async Task<Car> Handle(DeleteCarCommand request, CancellationToken cancellationToken)
+        public async Task<DeletedCarDto> Handle(DeleteCarCommand request, CancellationToken cancellationToken)
         {
             var car = _mapper.Map<Car>(request);
             // if (car == null)
@@ -31,8 +32,9 @@ public class DeleteCarCommand : IRequest<Car>
             // }
 
             await _carRepository.DeleteAsync(car);
+            var deletedCarDto = _mapper.Map<DeletedCarDto>(car);
+            return deletedCarDto;
 
-            return car;
         }
     }
 }

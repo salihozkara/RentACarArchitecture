@@ -1,3 +1,4 @@
+using Application.Features.Transmissions.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -5,11 +6,11 @@ using MediatR;
 
 namespace Application.Features.Transmissions.Commands.DeleteTransmission;
 
-public class DeleteTransmissionCommand:IRequest<Transmission>
+public class DeleteTransmissionCommand:IRequest<DeletedTransmissionDto>
 {
     public int Id { get; set; }
     // DeleteTransmissionCommandHandler
-    public class DeleteTransmissionCommandHandler : IRequestHandler<DeleteTransmissionCommand, Transmission>
+    public class DeleteTransmissionCommandHandler : IRequestHandler<DeleteTransmissionCommand, DeletedTransmissionDto>
     {
         private readonly ITransmissionRepository _transmissionRepository;
         // Mapper
@@ -20,13 +21,14 @@ public class DeleteTransmissionCommand:IRequest<Transmission>
             _transmissionRepository = transmissionRepository;
             _mapper = mapper;
         }
-        public async Task<Transmission> Handle(DeleteTransmissionCommand request, CancellationToken cancellationToken)
+        public async Task<DeletedTransmissionDto> Handle(DeleteTransmissionCommand request, CancellationToken cancellationToken)
         {
             var transmission = _mapper.Map<Transmission>(request);
             // if (transmission == null)
             //     throw new NotFoundException(nameof(Transmission), request.Id);
             await _transmissionRepository.DeleteAsync(transmission);
-            return transmission;
+            var deletedTransmissionDto = _mapper.Map<DeletedTransmissionDto>(transmission);
+            return deletedTransmissionDto;
         }
     }
 }

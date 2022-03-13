@@ -5,6 +5,7 @@ using Application.Features.Colors.Rules;
 using Application.Features.Fuels.Rules;
 using Application.Features.Models.Rules;
 using Application.Features.Transmissions.Rules;
+using Application.Features.Users.Rules;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using MediatR;
@@ -25,6 +26,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<FuelBusinessRules>();
         services.AddScoped<ModelBusinessRules>();
         services.AddScoped<TransmissionBusinessRules>();
+        services.AddScoped<UserBusinessRules>();
 
         // Validation
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
